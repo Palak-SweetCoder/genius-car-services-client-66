@@ -1,0 +1,27 @@
+hr {
+    width: 20%;
+    margin-bottom: 35px;
+    margin: 0 auto;
+    border: none;
+    border-top: 3px solid black;
+}
+
+.services-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+}
+
+/* make services responsive */
+
+@media screen and (max-width: 540px) {
+    .services-container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+@media screen and (min-width: 541px) and (max-width: 960px) {
+    .services-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
