@@ -1,8 +1,12 @@
-# Project Name: genius-car-services
+# Genius Car Services Client Module - 66
 
-### To see the live website: [Click Here](https://genius-car-services-b5509.web.app/)
+### Here I perform mongodb crud operation into a real project. Want to see the live website? CLICK HERE
 
-## Project Description:
+- Create
+- Read
+- Delete
+
+## USED:
 - Register new user
 - Login user
 - Social login system
@@ -12,7 +16,7 @@
 - Added password reset funtionality
 - Form design using react bootstrap
 
-### Hot works:
+### USED:
 - Used React toast
 - Required auth
 - Used bootstrap spinner
