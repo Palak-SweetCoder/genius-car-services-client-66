@@ -43,7 +43,7 @@ const Checkout = () => {
         }
         //nothing critical
         //just used axios instead of fetch
-        axios.post('http://localhost:5000/order', order)
+        axios.post('https://immense-retreat-62779.herokuapp.com/order', order)
             .then(res => {
                 const { data } = res;
                 if (data.insertedId) {

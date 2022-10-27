@@ -5,17 +5,17 @@ const ManageServices = () => {
     const [services, setServices] = useServices();
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure you want to delete this user?');
-        if(proceed){
-            const url =`http://localhost:5000/service/${id}`;
+        if (proceed) {
+            const url = `https://immense-retreat-62779.herokuapp.com/service/${id}`;
             fetch(url, {
                 method: 'DELETE',
             })
-            .then(res=>res.json())
-            .then(data=>{
-                console.log(data);
-                const remaining = services.filter(s=>s._id !== id);
-                setServices(remaining);
-            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    const remaining = services.filter(s => s._id !== id);
+                    setServices(remaining);
+                })
         }
     }
     return (
@@ -23,7 +23,7 @@ const ManageServices = () => {
             <h1>Manage your services</h1>
             {
                 services.map(service => <div key={service._id}>
-                    <h3>{service.name} <button onClick={()=> handleDelete(service._id)} className='btn btn-danger '>DELETE</button></h3>
+                    <h3>{service.name} <button onClick={() => handleDelete(service._id)} className='btn btn-danger '>DELETE</button></h3>
                 </div>)
             }
         </div>
