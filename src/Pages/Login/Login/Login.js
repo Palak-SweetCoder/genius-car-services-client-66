@@ -8,7 +8,7 @@ import SocialLogin from '../SocialLogin/SocialLogin';
 import './Login.css'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import axios from 'axios';
+import useToken from '../../hooks/useToken';
 
 const Login = () => {
     const emailRef = useRef('');
@@ -32,8 +32,11 @@ const Login = () => {
 
     const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
 
-    if (user) {
-        // navigate(from, { replace: true });
+    // jwt
+    const [token] = useToken(user);
+
+    if (token) {
+        navigate(from, { replace: true });
     }
 
     if (loading || sending) {
@@ -54,10 +57,6 @@ const Login = () => {
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
         await signInWithEmailAndPassword(email, password);
-        //jwt
-        const { data } = await axios.post('https://immense-retreat-62779.herokuapp.com/login', { email });
-        localStorage.setItem('accessToken', data.accessToken);
-        navigate(from, { replace: true });
     }
 
     const resetPassword = async () => {

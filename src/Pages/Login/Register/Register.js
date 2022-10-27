@@ -5,6 +5,7 @@ import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-fireb
 import './Register.css';
 import SocialLogin from '../SocialLogin/SocialLogin';
 import Loading from '../../Shared/Loading/Loading';
+import useToken from '../../hooks/useToken';
 
 const Register = () => {
 
@@ -17,7 +18,7 @@ const Register = () => {
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
     const [updateProfile, updating] = useUpdateProfile(auth);
-
+    // const token = useToken(user);
     const navigate = useNavigate();
 
     const navigateLogin = () => {
